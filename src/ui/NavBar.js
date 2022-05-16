@@ -1,6 +1,13 @@
 import { Link, NavLink } from 'react-router-dom';
 
 export const Navbar = () => {
+
+
+  const handleLogout = () => {
+    // TODO: por hacer 
+    console.log('logout')
+  }
+
   return (
     <nav className='navbar navbar-expand-sm navbar-dark bg-dark'>
       <Link className='navbar-brand' to='/'>
@@ -21,7 +28,7 @@ export const Navbar = () => {
 
       <div className='navbar-collapse collapse w-100 order-3 dual-collapse2'>
         <ul className='navbar-nav ml-auto'>
-          <NavLink className='nav-item nav-link' to='/login'>
+          <NavLink className='nav-item nav-link' to='/login' onClick={handleLogout}>
             Logout
           </NavLink>
         </ul>
