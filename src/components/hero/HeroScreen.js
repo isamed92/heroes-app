@@ -1,7 +1,10 @@
 import React, { useMemo } from 'react'
 import { useParams, Navigate, useNavigate } from 'react-router-dom'
+import { heroImages } from '../../helpers/heroImages'
 import { getHeroesById } from '../../selectors/getHeroesById'
 
+// import batman from '../../assets/dc-batman.jpg' recurso estatico
+// const heroImages = require.context('../../assets/', true)
 export const HeroScreen = () => {
   const {heroid} = useParams()
   const navigate = useNavigate()
@@ -10,7 +13,7 @@ export const HeroScreen = () => {
   if(!hero) return <Navigate to='/'/>
 
   const {id, superhero, publisher, alter_ego, first_apparence, characters} = hero
-  const imagePath = `/assets/${id}.jpg`;
+  // const imagePath = `/assets/${id}.jpg`;
 
   const handleReturn = () => {
     navigate(-1)
@@ -19,7 +22,7 @@ export const HeroScreen = () => {
 
     <div className='row mt-5'>
       <div className='col-4 animate__animated animate__fadeInLeft'>
-        <img src={imagePath} alt={superhero} className='img-thumbnail' />
+        <img src={heroImages(`./${heroid}.jpg`)} alt={superhero} className='img-thumbnail' />
       </div>
       <div className='col-8 animate__animated animate__fadeIn'>
         <h3> {superhero} </h3>
